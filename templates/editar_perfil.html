@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <h2 class="text-center">Editar Perfil</h2>
+
+    <form action="{% url 'editar_perfil' %}" method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" {% if user.is_authenticated %} value="{{ request.user.username }}" {% endif %} required>
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" {% if user.is_authenticated %} value="{{ request.user.email }}" {% endif %} required>
+        </div>
+        <button class="btn btn-success" type="submit">Save</button>
+    </form>
+    <a type="button" class="btn btn-info" href="{% url 'alterar_senha' %}">Alterar Senha</a>
+</div>
+{% endblock %}

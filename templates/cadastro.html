@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <h2 class="text-center">Cadastro de itens</h2>
+<form method="POST" class="" role=" ">
+    
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="">
+        {{ field.label_tag }}
+        {{ field }}
+    </div>
+    {% endfor %}
+    <div>
+    <button class="btn-success" type="submit">Save</button>
+</div>
+</form>
+</div>
+<!--<div class="contact-area section-padding-0-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading">
+                    <h3>Crie seu registro, {{ user.username }} :)</h3>
+                </div>
+            </div>
+        </div>
+  
+        <div class="row">
+            <div class="col-12">
+                <div class="contact-form-area">
+                    <form action="{% url 'registro_item' %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                        <div class="row">
+                            <div class="col-12 col-lg-12">
+                                <label for="id_descricao">Descricao:</label>
+                                <input type="text" class="form-control" name="descricao" maxlength="100" required="" id="id_descricao">
+                            </div>
+                            <div class="col-12">
+                                <label for="id_valor">Valor:</label>
+                                <input type="number" class="form-control" name="valor" step="any" required="">
+                            </div>
+                            <div class="col-12">
+                                <label for="id_receita_despesa">Receita despesa:</label>
+                                <select name="receita_despesa" required="" id="id_receita_despesa">
+                                    <option value="" selected="">---------</option>
+                                    <option value="1">Entrada</option>
+                                    <option value="2">Saida</option>   
+                                  </select>
+                            </div>
+                            <div class="col-12 col-lg-3">
+                                <label for="id_categoria">Categoria:</label>
+                                <select name="categoria" required="" id="id_categoria" class="form-control">
+                                    <option value="" selected="">---------</option>
+                                  
+                                    <option value="1">Alimentação</option>
+                                  
+                                    <option value="2">Arrendamento</option>
+                                  
+                                    <option value="3">Ordenado</option>
+                                  
+                                    <option value="4">Extras</option>
+                                  
+                                    <option value="5">Transporte</option>
+                                  
+                                  </select>
+                            </div>
+                            <div class="col-12 col-lg-3">
+                                <label for="id_data_registro">Data registro:</label>
+                                <input type="date" class="form-control" name="data_registro" value="2022-10-17" id="id_data_registro">
+
+                            </div>
+                            <div class="col-12 col-lg-3">
+                                <input type="hidden" class="form-control" name="initial-data_registro" value="2022-10-17 04:23:15" id="initial-id_data_registro">
+                            </div>
+                            <div class="col-12 text-center">
+                                <button class="btn delicious-btn mt-30" type="submit">Criar sua receita</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+-->
+{% endblock %}

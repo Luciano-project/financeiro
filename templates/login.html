@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<Head>  <link rel="stylesheet" href="{% static 'style.css' %}"></Head>
+	<!-- Main Content -->
+<div class="main-center-align">
+    <div class="row main-content bg-success text-center">
+        <div class="col-md-4 text-center company__info">
+            <img class="logo-size" alt="bitcoin logo" src="{% static 'bitcoin-logo.svg' %}"></img>
+
+        </div>
+        <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+            <div class="container-fluid">
+                <div class="row">
+                    <h2>Log In</h2>
+                </div>
+                <div class="row">
+                    <form action="{% url 'login' %}" method="post" class="form-group">
+                        {% csrf_token %}
+
+                        <div class="row">
+                            <input type="email" name="email" class="form__input" placeholder="username@email.com">
+                        </div>
+                        <div class="row">
+                            <!-- <span class="fa fa-lock"></span> -->
+                            <input type="password" name="password" class="form__input" placeholder="senha">
+                        </div>
+                        <div class="row">
+                            <input type="checkbox" name="remember_me" id="remember_me" class="">
+                            <label for="remember_me">Remember Me!</label>
+                        </div>
+                        <div class="row">
+                            <input type="submit" value="Submit" class="btn">
+                        </div>
+                    </form>
+                </div>
+                <div class="row">
+                    <p>Don't have an account? <a href="{% url 'novo_usuario' %}">Register Here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
+<div class="container-fluid text-center footer">
+</div>
+
+
+{% endblock %}

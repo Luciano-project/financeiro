@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <h2 class="text-center">Altera Senha</h2>
+    <form action="{% url 'alterar_senha' %}" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button class="btn-success" type="submit">Save</button>
+    </form>
+</div>
+{% endblock %}

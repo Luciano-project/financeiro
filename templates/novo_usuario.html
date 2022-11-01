@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <h2 class="text-center">Cadastro de usuário</h2>
+
+    <form action="{% url 'novo_usuario' %}" method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" {% if user.is_authenticated %} value="{{ request.user.username }}" {% endif %} required>
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" {% if user.is_authenticated %} value="{{ request.user.email }}" {% endif %} required>
+        </div>
+        <div>
+            <label for="password">Senha</label>
+            <input type="password" name="password" required>
+        </div>
+
+        <div>
+            <label for="password2">Confirmação de senha</label>
+            <input type="password" name="password2" required>
+        </div>
+        <button class="btn-success" type="submit">Save</button>
+    </form>
+</div>
+{% endblock %}
